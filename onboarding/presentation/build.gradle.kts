@@ -10,6 +10,5 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.corePresentation))
     implementation(project(Modules.onboardingDomain))
 }

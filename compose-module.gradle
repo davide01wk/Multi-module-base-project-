@@ -47,6 +47,8 @@ dependencies {
     implementation Compose.viewModelCompose
     implementation Compose.activityCompose
 
+    implementation project(Modules.corePresentation)
+
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
 

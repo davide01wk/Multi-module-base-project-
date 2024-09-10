@@ -11,5 +11,4 @@ android {
 
 dependencies {
     implementation(project(Modules.trackerDomain))
-    implementation(Coil.coilCompose)
 }
