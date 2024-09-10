@@ -15,7 +15,9 @@ import com.deme.presentation.LocalSpacing
 import com.deme.presentation.components.ActionButton
 
 @Composable
-fun WelcomeScreen(){
+fun WelcomeScreen(
+    onNavigateToAge: () -> Unit
+){
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -29,7 +31,7 @@ fun WelcomeScreen(){
             modifier = Modifier.align(Alignment.CenterHorizontally),
             isEnabled = true,
             text = stringResource(id = R.string.next),
-            onClick = { /*TODO*/ }
+            onClick = onNavigateToAge
         )
     }
 }
