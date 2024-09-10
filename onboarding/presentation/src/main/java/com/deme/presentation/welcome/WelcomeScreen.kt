@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.deme.core.presentation.R
 import com.deme.presentation.LocalSpacing
+import com.deme.presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen(){
@@ -24,6 +25,12 @@ fun WelcomeScreen(){
             text = stringResource(id = R.string.welcome_text)
         )
         Spacer(modifier = Modifier.size(LocalSpacing.current.md))
+        ActionButton(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            isEnabled = true,
+            text = stringResource(id = R.string.next),
+            onClick = { /*TODO*/ }
+        )
     }
 }
 
