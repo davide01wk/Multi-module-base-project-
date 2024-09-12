@@ -1,4 +1,4 @@
-package com.deme.calorytracker.ui.theme
+package com.deme.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -8,8 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import com.deme.calorytrackerprep.ui.theme.Typography
-import com.deme.presentation.Dimensions
-import com.deme.presentation.LocalSpacing
 
 private val DarkColorPalette = darkColors(
     primary = BrightGreen,
@@ -42,7 +40,7 @@ fun CaloryTrackerTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Com
     } else {
         LightColorPalette
     }
-    CompositionLocalProvider ( LocalSpacing provides Dimensions()){
+    CompositionLocalProvider ( LocalSpacing provides Spacing(), LocalFontSize provides FontSize() ){
         MaterialTheme(
             colors = colors,
             typography = Typography,

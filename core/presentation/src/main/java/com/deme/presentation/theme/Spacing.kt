@@ -1,10 +1,10 @@
-package com.deme.presentation
+package com.deme.presentation.theme
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-data class Dimensions(
+data class Spacing(
     val default: Dp = 0.dp,
     val xs: Dp = 4.dp,
     val sm: Dp = 8.dp,
@@ -14,4 +14,4 @@ data class Dimensions(
     val xxl: Dp = 128.dp
 )
 
-val LocalSpacing = compositionLocalOf { Dimensions() }
+val LocalSpacing = compositionLocalOf { Spacing() }
