@@ -7,11 +7,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.deme.calorytracker.navigation.navigate
-import com.deme.calorytracker.ui.theme.CaloryTrackerTheme
+import com.deme.presentation.gender.GenderRoute
 import com.deme.presentation.navigation.UiEvent
 import com.deme.presentation.navigation.util.Route
-import com.deme.presentation.welcome.WelcomeScreen
+import com.deme.presentation.theme.CaloryTrackerTheme
+import com.deme.presentation.welcome.WelcomeRoute
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +26,9 @@ class MainActivity : ComponentActivity() {
                     startDestination = Route.WELCOME
                 ) {
                     composable(Route.WELCOME){
-                        WelcomeScreen(
-                            onNavigateToAge = {
-                                navController.navigate(UiEvent.Navigate(route = Route.AGE))
+                        WelcomeRoute(
+                            onNavigateToGender = {
+                                navController.navigate(UiEvent.Navigate(route = Route.GENDER))
                             }
                         )
                     }
@@ -33,7 +36,11 @@ class MainActivity : ComponentActivity() {
 
                     }
                     composable(Route.GENDER){
+                        GenderRoute(
+                            onNavigate = {
 
+                            }
+                        )
                     }
                     composable(Route.HEIGHT){
 

@@ -8,7 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
-import com.deme.presentation.LocalSpacing
+import com.deme.presentation.theme.LocalSpacing
 
 @Composable
 fun ActionButton(

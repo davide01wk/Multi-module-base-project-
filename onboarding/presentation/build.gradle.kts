@@ -12,4 +12,5 @@ android {
 dependencies {
     implementation (project(Modules.corePresentation))
     implementation(project(Modules.onboardingDomain))
+    implementation(project(Modules.coreDomain))
 }
