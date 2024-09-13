@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.deme.domain.model.Gender
 import com.deme.domain.preferences.Preferences
-import com.deme.presentation.navigation.UiEvent
-import com.deme.presentation.navigation.util.Route
+import com.deme.presentation.util.UiEvent
+import com.deme.presentation.navigation.Route
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

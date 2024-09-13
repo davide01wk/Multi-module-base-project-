@@ -4,8 +4,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -21,7 +23,7 @@ import com.deme.core.presentation.R
 import com.deme.domain.model.Gender
 import com.deme.presentation.components.ActionButton
 import com.deme.presentation.components.SelectableButton
-import com.deme.presentation.navigation.UiEvent
+import com.deme.presentation.util.UiEvent
 import com.deme.presentation.theme.CaloryTrackerTheme
 import com.deme.presentation.theme.LocalSpacing
 
@@ -61,8 +63,10 @@ fun GenderScreen(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = stringResource(id = R.string.whats_your_gender)
+                text = stringResource(id = R.string.whats_your_gender),
+                style = MaterialTheme.typography.h3
             )
+            Spacer(modifier = Modifier.size(LocalSpacing.current.md))
             Row {
                 SelectableButton(
                     text = stringResource(id = R.string.male),
@@ -76,6 +80,8 @@ fun GenderScreen(
                         fontWeight = FontWeight.Normal
                     )
                 )
+                Spacer(modifier = Modifier.size(LocalSpacing.current.md))
+
                 SelectableButton(
                     text = stringResource(id = R.string.female),
                     isSelected = selectedGender is Gender.Female,

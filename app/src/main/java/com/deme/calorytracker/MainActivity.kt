@@ -8,8 +8,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.deme.calorytracker.navigation.navigate
 import com.deme.presentation.gender.GenderRoute
-import com.deme.presentation.navigation.UiEvent
-import com.deme.presentation.navigation.util.Route
+import com.deme.presentation.util.UiEvent
+import com.deme.presentation.navigation.Route
 import com.deme.presentation.theme.CaloryTrackerTheme
 import com.deme.presentation.welcome.WelcomeRoute
 import dagger.hilt.android.AndroidEntryPoint

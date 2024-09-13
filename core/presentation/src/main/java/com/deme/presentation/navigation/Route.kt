@@ -1,4 +1,4 @@
-package com.deme.presentation.navigation.util
+package com.deme.presentation.navigation
 
 object Route {
     const val WELCOME = "welcome"
