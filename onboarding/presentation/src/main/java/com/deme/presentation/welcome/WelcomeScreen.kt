@@ -14,10 +14,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.deme.core.presentation.R
 import com.deme.presentation.theme.LocalSpacing
 import com.deme.presentation.components.ActionButton
+import com.deme.presentation.navigation.Route
+import com.deme.presentation.util.UiEvent
 
 @Composable
 fun WelcomeRoute(
-    onNavigateToGender: () -> Unit
+    onNavigateToGender: (UiEvent.Navigate) -> Unit
 ){
     WelcomeScreen(
         onNavigateToGender = onNavigateToGender
@@ -26,7 +28,7 @@ fun WelcomeRoute(
 
 @Composable
 fun WelcomeScreen(
-    onNavigateToGender: () -> Unit
+    onNavigateToGender: (UiEvent.Navigate) -> Unit
 ){
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -41,7 +43,7 @@ fun WelcomeScreen(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             isEnabled = true,
             text = stringResource(id = R.string.next),
-            onClick = onNavigateToGender
+            onClick = { onNavigateToGender(UiEvent.Navigate(Route.GENDER)) }
         )
     }
 }

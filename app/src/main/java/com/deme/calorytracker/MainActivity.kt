@@ -19,7 +19,6 @@ import com.deme.presentation.goal.GoalRoute
 import com.deme.presentation.height.HeightRoute
 import com.deme.presentation.navigation.Route
 import com.deme.presentation.theme.CaloryTrackerTheme
-import com.deme.presentation.util.UiEvent
 import com.deme.presentation.weight.WeightRoute
 import com.deme.presentation.welcome.WelcomeRoute
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,32 +42,30 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(Route.WELCOME){
                             WelcomeRoute(
-                                onNavigateToGender = {
-                                    navController.navigate(UiEvent.Navigate(route = Route.GENDER))
-                                }
+                                onNavigateToGender = navController::navigate
                             )
                         }
                         composable(Route.AGE){
                             AgeRoute(
                                 scaffoldState = scaffoldState,
-                                onNavigateToHeight = { navController.navigate(UiEvent.Navigate(route = Route.HEIGHT)) }
+                                onNavigateToHeight = navController::navigate
                             )
                         }
                         composable(Route.GENDER){
                             GenderRoute(
-                                onNavigateToAge = { navController.navigate(UiEvent.Navigate(route = Route.AGE)) }
+                                onNavigateToAge = navController::navigate
                             )
                         }
                         composable(Route.HEIGHT){
                             HeightRoute(
                                 scaffoldState = scaffoldState,
-                                onNavigateToWeight = { navController.navigate(UiEvent.Navigate(route = Route.WEIGHT)) }
+                                onNavigateToWeight = navController::navigate
                             )
                         }
                         composable(Route.WEIGHT){
                             WeightRoute(
                                 scaffoldState = scaffoldState,
-                                onNavigateToActivityLevel = { navController.navigate(UiEvent.Navigate(route = Route.ACTIVITY)) }
+                                onNavigateToActivityLevel = navController::navigate
                             )
                         }
                         composable(Route.NUTRIENT_GOAL){
@@ -76,12 +73,12 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Route.ACTIVITY){
                             ActivityLevelRoute(
-                                onNavigateToGoal = { navController.navigate(UiEvent.Navigate(route = Route.GOAL)) }
+                                onNavigateToGoal = navController::navigate
                             )
                         }
                         composable(Route.GOAL){
                             GoalRoute(
-                                onNavigateToActivityLevel = { navController.navigate(UiEvent.Navigate(route = Route.ACTIVITY)) } //todo
+                                onNavigateToActivityLevel = navController::navigate
                             )
                         }
                         composable(Route.TRACKER_OVERVIEW){
