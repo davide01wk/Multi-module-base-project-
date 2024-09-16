@@ -16,7 +16,7 @@ data class FontSize(
     val fontSize24: TextUnit = 24.sp,
     val fontSize26: TextUnit = 26.sp,
     val fontSize28: TextUnit = 28.sp,
-    val fontSize70: TextUnit = 30.sp,
+    val fontSize70: TextUnit = 70.sp,
 )
 
 val LocalFontSize = compositionLocalOf { FontSize() }
