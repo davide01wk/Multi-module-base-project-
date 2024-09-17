@@ -18,6 +18,7 @@ import com.deme.presentation.gender.GenderRoute
 import com.deme.presentation.goal.GoalRoute
 import com.deme.presentation.height.HeightRoute
 import com.deme.presentation.navigation.Route
+import com.deme.presentation.nutrient_goal.NutrientGoalRoute
 import com.deme.presentation.theme.CaloryTrackerTheme
 import com.deme.presentation.weight.WeightRoute
 import com.deme.presentation.welcome.WelcomeRoute
@@ -69,7 +70,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.NUTRIENT_GOAL){
-
+                            NutrientGoalRoute(
+                                scaffoldState = scaffoldState,
+                                onNavigateToTracker = navController::navigate
+                            )
                         }
                         composable(Route.ACTIVITY){
                             ActivityLevelRoute(
@@ -78,7 +82,7 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Route.GOAL){
                             GoalRoute(
-                                onNavigateToActivityLevel = navController::navigate
+                                onNavigateToNutrientGoal = navController::navigate
                             )
                         }
                         composable(Route.TRACKER_OVERVIEW){
