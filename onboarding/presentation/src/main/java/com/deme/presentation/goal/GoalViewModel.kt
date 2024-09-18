@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.deme.domain.model.ActivityLevel
 import com.deme.domain.model.GoalType
 import com.deme.domain.preferences.Preferences
 import com.deme.presentation.util.UiEvent
