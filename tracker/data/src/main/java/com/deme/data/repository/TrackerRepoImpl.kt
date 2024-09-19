@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class TrackerRepoImpl @Inject constructor(
     private val trackerDao: TrackerDao,
-    private val api: OpenFoodApi
+    private val foodApi: OpenFoodApi
 ) : TrackerRepo {
     override suspend fun searchFood(
         query: String,
@@ -23,7 +23,7 @@ class TrackerRepoImpl @Inject constructor(
         pageSize: Int
     ): Result<List<TrackableFood>> {
         return try {
-            val searchDto = api.searchFood(
+            val searchDto = foodApi.searchFood(
                 query = query,
                 page = page,
                 pageSize = pageSize

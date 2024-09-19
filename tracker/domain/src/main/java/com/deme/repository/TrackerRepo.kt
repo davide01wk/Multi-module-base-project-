@@ -1,6 +1,5 @@
 package com.deme.repository
 
-import com.deme.domain.model.MealType
 import com.deme.domain.model.TrackableFood
 import com.deme.domain.model.TrackedFood
 import kotlinx.coroutines.flow.Flow
