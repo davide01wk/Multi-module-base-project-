@@ -22,6 +22,7 @@ class DefaultPreferences(
         private const val KEY_CARB_RATIO = "carb_ratio"
         private const val KEY_PROTEIN_RATIO = "protein_ratio"
         private const val KEY_FAT_RATIO = "fat_ratio"
+        private const val KEY_SHOW_ONBOARDING = "show_onboarding"
     }
 
     override fun saveGender(gender: Gender) {
@@ -101,4 +102,15 @@ class DefaultPreferences(
             fatRatio = fatRatio
         )
     }
+
+    override fun saveShowOnboarding(showOnboarding: Boolean) {
+        sharedPref.edit()
+            .putBoolean(KEY_SHOW_ONBOARDING, showOnboarding)
+            .apply()
+    }
+
+    override fun loadShowOnboarding(): Boolean {
+        return sharedPref.getBoolean(KEY_SHOW_ONBOARDING, true)
+    }
+
 }

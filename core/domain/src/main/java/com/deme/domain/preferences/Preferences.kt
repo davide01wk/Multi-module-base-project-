@@ -16,6 +16,9 @@ interface Preferences {
     fun saveProteinRatio(ratio: Float)
     fun saveFatRatio(ratio: Float)
 
+    fun saveShowOnboarding(showOnboarding: Boolean)
+    fun loadShowOnboarding(): Boolean
+
     fun loadUserInfo(): UserInfo
 
 }

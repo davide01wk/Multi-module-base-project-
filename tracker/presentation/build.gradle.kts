@@ -11,4 +11,6 @@ android {
 
 dependencies {
     implementation(project(Modules.trackerDomain))
+    implementation(project(Modules.corePresentation))
+    implementation(project(Modules.coreDomain))
 }
