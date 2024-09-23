@@ -1,4 +1,4 @@
-package com.deme.repository
+package com.deme.domain.repository
 
 import com.deme.domain.model.TrackableFood
 import com.deme.domain.model.TrackedFood

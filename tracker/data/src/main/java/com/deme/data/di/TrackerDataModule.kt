@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.deme.data.remote.OpenFoodApi
 import com.deme.data.local.TrackerDatabase
 import com.deme.data.repository.TrackerRepoImpl
-import com.deme.repository.TrackerRepo
+import com.deme.domain.repository.TrackerRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -7,7 +7,7 @@ import com.deme.data.mappers.toTrackableFoodList
 import com.deme.data.remote.OpenFoodApi
 import com.deme.domain.model.TrackableFood
 import com.deme.domain.model.TrackedFood
-import com.deme.repository.TrackerRepo
+import com.deme.domain.repository.TrackerRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.time.LocalDate
