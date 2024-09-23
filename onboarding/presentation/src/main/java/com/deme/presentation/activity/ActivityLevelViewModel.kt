@@ -26,7 +26,7 @@ class ActivityLevelViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     fun onActivityLevelClick(activityLevel: ActivityLevel){
-        selectedActivityLevel = selectedActivityLevel
+        selectedActivityLevel = activityLevel
     }
 
     fun onNextClick(){
