@@ -1,4 +1,4 @@
-package com.deme.presentation
+package com.deme.presentation.tracker_overview
 
 import androidx.annotation.DrawableRes
 import com.deme.core.presentation.R

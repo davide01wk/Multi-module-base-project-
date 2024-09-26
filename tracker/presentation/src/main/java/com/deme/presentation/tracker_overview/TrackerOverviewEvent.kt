@@ -1,4 +1,4 @@
-package com.deme.presentation
+package com.deme.presentation.tracker_overview
 
 import com.deme.domain.model.MealType
 import com.deme.domain.model.TrackedFood
