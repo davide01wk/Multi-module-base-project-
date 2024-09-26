@@ -2,6 +2,7 @@ object Compose {
     const val composeVersion = "1.7.1"
     const val composeCompilerVersion = "1.4.5"
     const val material = "androidx.compose.material:material:$composeVersion"
+    const val materialIcons = "androidx.compose.material:material-icons-core:$composeVersion"
     const val ui = "androidx.compose.ui:ui:$composeVersion"
     const val uiToolingPreview = "androidx.compose.ui:ui-tooling:$composeVersion"
     const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
