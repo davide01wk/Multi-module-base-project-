@@ -15,7 +15,7 @@ class TrackFood(
         amount: Int
     ) {
         val trackedFood = TrackedFood(
-            name = "",
+            name = food.name,
             carbs = food.carbsPer100g * (amount / 100),
             protein = food.proteinPer100g * (amount / 100),
             fat = food.fatPer100g * (amount / 100),

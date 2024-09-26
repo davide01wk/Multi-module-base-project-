@@ -4,8 +4,11 @@ import androidx.annotation.DrawableRes
 import com.deme.core.presentation.R
 import com.deme.domain.model.MealType
 import com.deme.domain.model.TrackedFood
+import com.deme.presentation.util.UiText
+import java.time.LocalDate
 
 data class TrackerOverviewState(
+    val date: LocalDate,
     val caloriesGoal: Int,
     val carbsGoal: Int,
     val proteinGoal: Int,
@@ -18,6 +21,7 @@ data class TrackerOverviewState(
 ) {
     companion object {
         fun default() = TrackerOverviewState(
+            date = LocalDate.now(),
             caloriesGoal = 0,
             carbsGoal = 0,
             fatGoal = 0,
@@ -33,6 +37,7 @@ data class TrackerOverviewState(
 
 data class MealState(
     val mealType: MealType,
+    val name: UiText,
     @DrawableRes val imageRes: Int,
     val mealCarbs: Int,
     val mealProteins: Int,
@@ -45,6 +50,7 @@ data class MealState(
         fun defaultList(): List<MealState> = listOf(
             MealState(
                 mealType = MealType.BreakFast,
+                name = UiText.StringResource(R.string.breakfast),
                 imageRes = R.drawable.ic_breakfast,
                 mealCarbs = 0,
                 mealProteins = 0,
@@ -55,6 +61,7 @@ data class MealState(
             ),
             MealState(
                 mealType = MealType.Snack,
+                name = UiText.StringResource(R.string.snacks),
                 imageRes = R.drawable.ic_snack,
                 mealCarbs = 0,
                 mealProteins = 0,
@@ -65,6 +72,7 @@ data class MealState(
             ),
             MealState(
                 mealType = MealType.Lunch,
+                name = UiText.StringResource(R.string.lunch),
                 imageRes = R.drawable.ic_lunch,
                 mealCarbs = 0,
                 mealProteins = 0,
@@ -75,6 +83,7 @@ data class MealState(
             ),
             MealState(
                 mealType = MealType.Dinner,
+                name = UiText.StringResource(R.string.dinner),
                 imageRes = R.drawable.ic_dinner,
                 mealCarbs = 0,
                 mealProteins = 0,

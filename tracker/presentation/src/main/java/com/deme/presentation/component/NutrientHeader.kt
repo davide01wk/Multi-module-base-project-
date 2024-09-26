@@ -1,4 +1,4 @@
-package com.deme.presentation.tracker_overview
+package com.deme.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,12 +21,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.deme.core.presentation.R
-import com.deme.presentation.component.NutrientsBar
-import com.deme.presentation.component.NutrientsBarInfo
-import com.deme.presentation.component.UnitDisplay
 import com.deme.presentation.theme.CaloryTrackerTheme
 import com.deme.presentation.theme.LocalSpacing
 import com.deme.presentation.theme.ProteinColor
+import com.deme.presentation.tracker_overview.TrackerOverviewState
 
 @Composable
 fun NutrientHeader(
@@ -85,9 +83,9 @@ fun NutrientHeader(
                 modifier = Modifier.fillMaxWidth().height(40.dp),
                 calorieGoal = state.caloriesGoal,
                 calories = state.totalCalories,
-                fat = state.fatGoal,
-                proteins = state.proteinGoal,
-                carbs = state.carbsGoal
+                fat = state.totalFat,
+                proteins = state.totalProtein,
+                carbs = state.totalCarbs
             )
         }
         Spacer(modifier = Modifier.size(LocalSpacing.current.md))
@@ -124,7 +122,7 @@ fun NutrientHeader(
 }
 @Composable
 @Preview
-fun NutrientHeaderPreview(){
+private fun NutrientHeaderPreview(){
     CaloryTrackerTheme {
         NutrientHeader(
             modifier = Modifier.fillMaxWidth(),

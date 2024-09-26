@@ -20,6 +20,7 @@ import com.deme.presentation.height.HeightRoute
 import com.deme.presentation.navigation.Route
 import com.deme.presentation.nutrient_goal.NutrientGoalRoute
 import com.deme.presentation.theme.CaloryTrackerTheme
+import com.deme.presentation.tracker_overview.TrackerOverviewRoute
 import com.deme.presentation.weight.WeightRoute
 import com.deme.presentation.welcome.WelcomeRoute
 import dagger.hilt.android.AndroidEntryPoint
@@ -86,7 +87,11 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.TRACKER_OVERVIEW){
+                            TrackerOverviewRoute(
+                                onNavigateToSearch = {
 
+                                }
+                            )
                         }
                         composable(Route.SEARCH){
 

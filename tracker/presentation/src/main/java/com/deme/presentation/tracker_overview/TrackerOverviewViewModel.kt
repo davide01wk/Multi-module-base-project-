@@ -9,16 +9,15 @@ import com.deme.domain.preferences.Preferences
 import com.deme.domain.usecase.TrackerUseCases
 import com.deme.presentation.navigation.Route
 import com.deme.presentation.util.UiEvent
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import javax.inject.Inject
-
+@HiltViewModel
 class TrackerOverviewViewModel @Inject constructor(
     private val trackerUseCases: TrackerUseCases,
     preferences: Preferences
 ) : ViewModel() {
-
-    private var trackerDate by mutableStateOf(LocalDate.now())
 
     var state by mutableStateOf(TrackerOverviewState.default())
         private set
@@ -30,7 +29,7 @@ class TrackerOverviewViewModel @Inject constructor(
 
     private fun observeFoodsForDate() {
         viewModelScope.launch {
-            trackerUseCases.getFoodsForDate(date = trackerDate).collect { trackedFood ->
+            trackerUseCases.getFoodsForDate(date = state.date).collect { trackedFood ->
                 val result = trackerUseCases.calculateMealNutrients(trackedFood)
                 state = state.copy(
                     caloriesGoal = result.caloriesGoal,
@@ -65,9 +64,9 @@ class TrackerOverviewViewModel @Inject constructor(
                 UiEvent.Navigate(
                     Route.SEARCH +
                             "${event.mealType}" +
-                            "${trackerDate.dayOfMonth}" +
-                            "${trackerDate.month}" +
-                            "${trackerDate.year}"
+                            "${state.date.dayOfMonth}" +
+                            "${state.date.month}" +
+                            "${state.date.year}"
                 )
             }
 
@@ -90,11 +89,11 @@ class TrackerOverviewViewModel @Inject constructor(
             }
 
             TrackerOverviewEvent.onNextDayClick -> {
-                trackerDate = trackerDate.plusDays(1)
+                state = state.copy(date = state.date.plusDays(1))
                 refreshTrackerState()
             }
             TrackerOverviewEvent.onPreviousDayClick -> {
-                trackerDate = trackerDate.minusDays(1)
+                state = state.copy(date = state.date.minusDays(1))
                 refreshTrackerState()
             }
         }

@@ -47,7 +47,7 @@ dependencies {
     implementation Compose.viewModelCompose
     implementation Compose.activityCompose
     implementation Compose.materialIcons
-
+    implementation Coil.coilCompose
 
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
