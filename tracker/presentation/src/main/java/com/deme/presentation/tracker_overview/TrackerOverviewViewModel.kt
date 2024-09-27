@@ -11,7 +11,6 @@ import com.deme.presentation.navigation.Route
 import com.deme.presentation.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.time.LocalDate
 import javax.inject.Inject
 @HiltViewModel
 class TrackerOverviewViewModel @Inject constructor(
@@ -60,7 +59,7 @@ class TrackerOverviewViewModel @Inject constructor(
 
     fun onEvent(event: TrackerOverviewEvent) {
         when (event) {
-            is TrackerOverviewEvent.onAddFoodClick -> {
+            is TrackerOverviewEvent.OnAddFoodClick -> {
                 UiEvent.Navigate(
                     Route.SEARCH +
                             "${event.mealType}" +
@@ -70,13 +69,13 @@ class TrackerOverviewViewModel @Inject constructor(
                 )
             }
 
-            is TrackerOverviewEvent.onDeleteTrackedFood -> {
+            is TrackerOverviewEvent.OnDeleteTrackedFood -> {
                 viewModelScope.launch {
                     trackerUseCases.deleteFood(food = event.food)
                     refreshTrackerState()
                 }
             }
-            is TrackerOverviewEvent.onMealExpand -> {
+            is TrackerOverviewEvent.OnMealExpand -> {
                 state = state.copy(
                     meals = state.meals.map {
                         if(it.mealType == event.mealType){
@@ -88,11 +87,11 @@ class TrackerOverviewViewModel @Inject constructor(
                 )
             }
 
-            TrackerOverviewEvent.onNextDayClick -> {
+            TrackerOverviewEvent.OnNextDayClick -> {
                 state = state.copy(date = state.date.plusDays(1))
                 refreshTrackerState()
             }
-            TrackerOverviewEvent.onPreviousDayClick -> {
+            TrackerOverviewEvent.OnPreviousDayClick -> {
                 state = state.copy(date = state.date.minusDays(1))
                 refreshTrackerState()
             }

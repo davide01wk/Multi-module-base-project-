@@ -4,9 +4,9 @@ import com.deme.domain.model.MealType
 import com.deme.domain.model.TrackedFood
 
 sealed class TrackerOverviewEvent {
-    data class onAddFoodClick(val mealType: MealType): TrackerOverviewEvent()
-    data class onDeleteTrackedFood(val food: TrackedFood): TrackerOverviewEvent()
-    object onNextDayClick: TrackerOverviewEvent()
-    object onPreviousDayClick: TrackerOverviewEvent()
-    data class onMealExpand(val mealType: MealType): TrackerOverviewEvent()
+    data class OnAddFoodClick(val mealType: MealType): TrackerOverviewEvent()
+    data class OnDeleteTrackedFood(val food: TrackedFood): TrackerOverviewEvent()
+    object OnNextDayClick: TrackerOverviewEvent()
+    object OnPreviousDayClick: TrackerOverviewEvent()
+    data class OnMealExpand(val mealType: MealType): TrackerOverviewEvent()
 }

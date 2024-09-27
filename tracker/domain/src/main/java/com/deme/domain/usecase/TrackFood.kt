@@ -12,7 +12,8 @@ class TrackFood(
     suspend operator fun invoke(
         food: TrackableFood,
         mealType: MealType,
-        amount: Int
+        amount: Int,
+        date: LocalDate
     ) {
         val trackedFood = TrackedFood(
             name = food.name,
@@ -22,7 +23,7 @@ class TrackFood(
             imageUrl = food.imageUrl,
             mealType = mealType,
             amount = amount,
-            date = LocalDate.now(),
+            date = date,
             calories = food.caloriesPer100g * (amount / 100)
         )
         repository.insertTrackedFood(

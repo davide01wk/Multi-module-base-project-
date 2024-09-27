@@ -51,10 +51,10 @@ fun TrackerOverviewScreen(
             DaySelector(
                 modifier = Modifier.fillMaxWidth(),
                 onPreviousDayClick = {
-                    onEvent(TrackerOverviewEvent.onPreviousDayClick)
+                    onEvent(TrackerOverviewEvent.OnPreviousDayClick)
                 },
                 onNextDayClick = {
-                    onEvent(TrackerOverviewEvent.onNextDayClick)
+                    onEvent(TrackerOverviewEvent.OnNextDayClick)
                 },
                 localdate = state.date
             )
@@ -65,7 +65,7 @@ fun TrackerOverviewScreen(
                         modifier = Modifier.height(100.dp),
                         meal = meal,
                         onExpandClick = {
-                            onEvent(TrackerOverviewEvent.onMealExpand(mealType = meal.mealType))
+                            onEvent(TrackerOverviewEvent.OnMealExpand(mealType = meal.mealType))
                         },
                         content = {
                             meal.trackedFood.forEach { trackedFood ->
@@ -73,7 +73,7 @@ fun TrackerOverviewScreen(
                                     modifier = Modifier.height(100.dp),
                                     food = trackedFood,
                                     onDeleteClick = {
-                                        onEvent(TrackerOverviewEvent.onDeleteTrackedFood(food = trackedFood))
+                                        onEvent(TrackerOverviewEvent.OnDeleteTrackedFood(food = trackedFood))
                                     }
                                 )
                             }
@@ -83,7 +83,7 @@ fun TrackerOverviewScreen(
                                     meal.name.asString(LocalContext.current)
                                 ),
                                 onClick = {
-                                    onEvent(TrackerOverviewEvent.onAddFoodClick(mealType = meal.mealType))
+                                    onEvent(TrackerOverviewEvent.OnAddFoodClick(mealType = meal.mealType))
                                 }
                             )
                         }
