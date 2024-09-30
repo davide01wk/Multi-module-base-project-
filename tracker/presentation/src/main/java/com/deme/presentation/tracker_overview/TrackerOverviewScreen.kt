@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -23,12 +24,23 @@ import com.deme.presentation.component.NutrientHeader
 import com.deme.presentation.component.TrackedFoodCard
 import com.deme.presentation.theme.CaloryTrackerTheme
 import com.deme.presentation.theme.LocalSpacing
+import com.deme.presentation.util.UiEvent
 
 @Composable
 fun TrackerOverviewRoute(
     viewModel: TrackerOverviewViewModel = hiltViewModel(),
-    onNavigateToSearch: () -> Unit
+    onNavigateToSearch: (UiEvent.Navigate) -> Unit
 ) {
+    val context = LocalContext.current
+    LaunchedEffect(key1 = context) {
+        viewModel.uiEvent.collect { event ->
+            when (event) {
+                is UiEvent.Navigate -> onNavigateToSearch(event)
+                else -> Unit
+            }
+        }
+    }
+
     TrackerOverviewScreen(
         state = viewModel.state,
         onEvent = viewModel::onEvent

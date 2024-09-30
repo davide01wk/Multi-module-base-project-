@@ -22,6 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.deme.core.presentation.R
 import com.deme.presentation.theme.CaloryTrackerTheme
+import com.deme.presentation.theme.CarbColor
+import com.deme.presentation.theme.FatColor
 import com.deme.presentation.theme.LocalSpacing
 import com.deme.presentation.theme.ProteinColor
 import com.deme.presentation.tracker_overview.TrackerOverviewState
@@ -96,10 +98,10 @@ fun NutrientHeader(
         ) {
             NutrientsBarInfo(
                 modifier = Modifier.size(90.dp),
-                goal = state.proteinGoal,
-                value = state.totalProtein,
+                goal = state.carbsGoal,
+                value = state.totalCarbs,
                 name = stringResource(R.string.carbs),
-                color = ProteinColor
+                color = CarbColor
             )
             NutrientsBarInfo(
                 modifier = Modifier.size(90.dp),
@@ -110,10 +112,10 @@ fun NutrientHeader(
             )
             NutrientsBarInfo(
                 modifier = Modifier.size(90.dp),
-                goal = state.proteinGoal,
-                value = state.totalProtein,
+                goal = state.fatGoal,
+                value = state.totalFat,
                 name = stringResource(R.string.fat),
-                color = ProteinColor
+                color = FatColor
             )
         }
     }
