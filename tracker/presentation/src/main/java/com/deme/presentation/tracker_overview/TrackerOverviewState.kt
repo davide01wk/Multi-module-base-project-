@@ -47,51 +47,64 @@ data class MealState(
     val trackedFood: List<TrackedFood>
 ) {
     companion object {
+
         fun defaultList(): List<MealState> = listOf(
-            MealState(
-                mealType = MealType.BreakFast,
-                name = UiText.StringResource(R.string.breakfast),
-                imageRes = R.drawable.ic_breakfast,
-                mealCarbs = 0,
-                mealProteins = 0,
-                mealFats = 0,
-                mealCalories = 0,
-                trackedFood = emptyList(),
-                isExpanded = false
-            ),
-            MealState(
-                mealType = MealType.Snack,
-                name = UiText.StringResource(R.string.snacks),
-                imageRes = R.drawable.ic_snack,
-                mealCarbs = 0,
-                mealProteins = 0,
-                mealFats = 0,
-                mealCalories = 0,
-                trackedFood = emptyList(),
-                isExpanded = false
-            ),
-            MealState(
-                mealType = MealType.Lunch,
-                name = UiText.StringResource(R.string.lunch),
-                imageRes = R.drawable.ic_lunch,
-                mealCarbs = 0,
-                mealProteins = 0,
-                mealFats = 0,
-                mealCalories = 0,
-                trackedFood = emptyList(),
-                isExpanded = false
-            ),
-            MealState(
-                mealType = MealType.Dinner,
-                name = UiText.StringResource(R.string.dinner),
-                imageRes = R.drawable.ic_dinner,
-                mealCarbs = 0,
-                mealProteins = 0,
-                mealFats = 0,
-                mealCalories = 0,
-                trackedFood = emptyList(),
-                isExpanded = false
-            ),
+            default(mealType = MealType.BreakFast),
+            default(mealType = MealType.Snack),
+            default(mealType = MealType.Dinner),
+            default(mealType = MealType.Lunch),
         )
+
+        fun default(mealType: MealType): MealState {
+            return when (mealType) {
+                MealType.BreakFast -> MealState(
+                    mealType = MealType.BreakFast,
+                    name = UiText.StringResource(R.string.breakfast),
+                    imageRes = R.drawable.ic_breakfast,
+                    mealCarbs = 0,
+                    mealProteins = 0,
+                    mealFats = 0,
+                    mealCalories = 0,
+                    trackedFood = emptyList(),
+                    isExpanded = false
+                )
+
+                MealType.Snack -> MealState(
+                    mealType = MealType.Snack,
+                    name = UiText.StringResource(R.string.snacks),
+                    imageRes = R.drawable.ic_snack,
+                    mealCarbs = 0,
+                    mealProteins = 0,
+                    mealFats = 0,
+                    mealCalories = 0,
+                    trackedFood = emptyList(),
+                    isExpanded = false
+                )
+
+                MealType.Lunch -> MealState(
+                    mealType = MealType.Lunch,
+                    name = UiText.StringResource(R.string.lunch),
+                    imageRes = R.drawable.ic_lunch,
+                    mealCarbs = 0,
+                    mealProteins = 0,
+                    mealFats = 0,
+                    mealCalories = 0,
+                    trackedFood = emptyList(),
+                    isExpanded = false
+                )
+
+                MealType.Dinner -> MealState(
+                    mealType = MealType.Dinner,
+                    name = UiText.StringResource(R.string.dinner),
+                    imageRes = R.drawable.ic_dinner,
+                    mealCarbs = 0,
+                    mealProteins = 0,
+                    mealFats = 0,
+                    mealCalories = 0,
+                    trackedFood = emptyList(),
+                    isExpanded = false
+                )
+            }
+        }
     }
 }
