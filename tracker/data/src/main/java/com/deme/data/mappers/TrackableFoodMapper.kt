@@ -6,8 +6,8 @@ import com.deme.domain.model.TrackableFood
 fun SearchDto.toTrackableFoodList(): List<TrackableFood> {
     return this.productList.map {
         TrackableFood(
-            name = it.product_name,
-            imageUrl = it.image_front_url,
+            name = it.product_name ?: "",
+            imageUrl = it.image_front_url ?: "",
             caloriesPer100g = it.nutriments.kcal_100g.toInt(),
             carbsPer100g = it.nutriments.carbohydrates_100g.toInt(),
             proteinPer100g = it.nutriments.proteins_100g.toInt(),

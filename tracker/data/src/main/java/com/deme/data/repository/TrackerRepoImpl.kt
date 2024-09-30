@@ -32,6 +32,7 @@ class TrackerRepoImpl @Inject constructor(
                 searchDto.toTrackableFoodList()
             )
         } catch (e: Exception) {
+            e.printStackTrace()
             Result.failure(e)
         }
     }
