@@ -1,10 +1,10 @@
 package com.deme.data.mappers
 
-import com.deme.data.remote.dto.SearchDto
+import com.deme.data.remote.dto.ProductResponse
 import com.deme.domain.model.TrackableFood
 
-fun SearchDto.toTrackableFoodList(): List<TrackableFood> {
-    return this.productList.map {
+fun List<ProductResponse>.toTrackableFoodList(): List<TrackableFood> {
+    return this.map {
         TrackableFood(
             name = it.product_name ?: "",
             imageUrl = it.image_front_url ?: "",

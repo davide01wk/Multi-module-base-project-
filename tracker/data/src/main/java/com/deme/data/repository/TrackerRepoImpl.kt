@@ -29,7 +29,20 @@ class TrackerRepoImpl @Inject constructor(
                 pageSize = pageSize
             )
             Result.success(
-                searchDto.toTrackableFoodList()
+                searchDto.productList
+                    .filter {
+                        val caloriesPer100g = it.nutriments.kcal_100g
+                        val fatPer100g = it.nutriments.fat_100g
+                        val carbsPer100g = it.nutriments.carbohydrates_100g
+                        val proteinPer100g = it.nutriments.proteins_100g
+
+                        val caloriesPer100gAccepted = fatPer100g * 9 + proteinPer100g * 4 + carbsPer100g * 4
+                        val lowerBound = caloriesPer100gAccepted * 0.9
+                        val upperBound = caloriesPer100gAccepted * 1.1
+
+                        caloriesPer100g in (lowerBound..upperBound)
+                    }
+                    .toTrackableFoodList()
             )
         } catch (e: Exception) {
             e.printStackTrace()
