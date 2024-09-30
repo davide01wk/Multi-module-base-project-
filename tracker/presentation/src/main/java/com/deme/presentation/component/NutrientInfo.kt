@@ -10,6 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.deme.presentation.theme.CaloryTrackerTheme
 import com.deme.presentation.theme.LocalFontSize
+import com.deme.presentation.tracker_overview.components.UnitDisplay
 
 @Composable
 fun NutrientInfo(

@@ -1,4 +1,4 @@
-package com.deme.presentation.component
+package com.deme.presentation.tracker_overview.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

@@ -1,4 +1,4 @@
-package com.deme.presentation.component
+package com.deme.presentation.tracker_overview.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -32,6 +32,7 @@ import coil.compose.rememberImagePainter
 import com.deme.core.presentation.R
 import com.deme.domain.model.MealType
 import com.deme.domain.model.TrackedFood
+import com.deme.presentation.component.NutrientInfo
 import com.deme.presentation.theme.LocalSpacing
 import java.time.LocalDate
 

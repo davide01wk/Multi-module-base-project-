@@ -1,4 +1,4 @@
-package com.deme.presentation.component
+package com.deme.presentation.tracker_overview.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -28,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.deme.core.presentation.R
 import com.deme.domain.model.MealType
+import com.deme.presentation.component.NutrientInfo
 import com.deme.presentation.theme.CaloryTrackerTheme
 import com.deme.presentation.theme.LocalSpacing
 import com.deme.presentation.tracker_overview.MealState

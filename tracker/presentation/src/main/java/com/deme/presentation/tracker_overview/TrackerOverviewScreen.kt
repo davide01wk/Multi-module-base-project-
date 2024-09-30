@@ -17,11 +17,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.deme.core.presentation.R
-import com.deme.presentation.component.AddButton
-import com.deme.presentation.component.DaySelector
-import com.deme.presentation.component.ExpandableMealCard
-import com.deme.presentation.component.NutrientHeader
-import com.deme.presentation.component.TrackedFoodCard
+import com.deme.presentation.tracker_overview.components.AddButton
+import com.deme.presentation.tracker_overview.components.DaySelector
+import com.deme.presentation.tracker_overview.components.ExpandableMealCard
+import com.deme.presentation.tracker_overview.components.NutrientHeader
+import com.deme.presentation.tracker_overview.components.TrackedFoodCard
 import com.deme.presentation.theme.CaloryTrackerTheme
 import com.deme.presentation.theme.LocalSpacing
 import com.deme.presentation.util.UiEvent
