@@ -17,5 +17,5 @@ sealed class SearchEvent {
         val amount: String
     ): SearchEvent()
     data class OnQueryChange(val query: String): SearchEvent()
-    data class OnSearchFocusChange(val isFocused: Boolean): SearchEvent() //todo understand this
+    data class OnSearchFocusChange(val isFocused: Boolean): SearchEvent()
 }

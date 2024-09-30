@@ -1,6 +1,4 @@
 package com.deme.presentation.search
-
-
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -60,7 +58,9 @@ class SearchViewModel @Inject constructor(
             }
 
             is SearchEvent.OnSearchFocusChange -> {
-                TODO()
+                state = state.copy(
+                    isHintVisible = !event.isFocused && state.query.isBlank()
+                )
             }
 
             SearchEvent.OnSearchFood -> {
