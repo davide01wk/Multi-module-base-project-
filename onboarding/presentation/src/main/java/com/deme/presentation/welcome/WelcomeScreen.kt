@@ -19,7 +19,7 @@ import com.deme.presentation.util.UiEvent
 
 @Composable
 fun WelcomeRoute(
-    onNavigateToGender: (UiEvent.Navigate) -> Unit
+    onNavigateToGender: () -> Unit
 ){
     WelcomeScreen(
         onNavigateToGender = onNavigateToGender
@@ -28,7 +28,7 @@ fun WelcomeRoute(
 
 @Composable
 fun WelcomeScreen(
-    onNavigateToGender: (UiEvent.Navigate) -> Unit
+    onNavigateToGender: () -> Unit
 ){
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -43,7 +43,7 @@ fun WelcomeScreen(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             isEnabled = true,
             text = stringResource(id = R.string.next),
-            onClick = { onNavigateToGender(UiEvent.Navigate(Route.GENDER)) }
+            onClick = { onNavigateToGender() }
         )
     }
 }

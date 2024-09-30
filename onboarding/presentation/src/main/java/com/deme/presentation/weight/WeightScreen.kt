@@ -26,7 +26,7 @@ import com.deme.presentation.util.UiEvent
 @Composable
 fun WeightRoute(
     scaffoldState: ScaffoldState,
-    onNavigateToActivityLevel: (UiEvent.Navigate) -> Unit,
+    onNavigateToActivityLevel: () -> Unit,
     viewModel: WeightViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -34,7 +34,7 @@ fun WeightRoute(
     LaunchedEffect(true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigateToActivityLevel(event)
+                is UiEvent.Success -> onNavigateToActivityLevel()
                 is UiEvent.ShowSnackbar -> scaffoldState.snackbarHostState.showSnackbar(
                     message = event.message.asString(context)
                 )

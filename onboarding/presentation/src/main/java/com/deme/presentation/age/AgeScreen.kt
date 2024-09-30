@@ -27,7 +27,7 @@ import com.deme.presentation.util.UiEvent
 @Composable
 fun AgeRoute(
     scaffoldState: ScaffoldState,
-    onNavigateToHeight: (UiEvent.Navigate) -> Unit,
+    onNavigateToHeight: () -> Unit,
     viewModel: AgeViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -35,7 +35,7 @@ fun AgeRoute(
     LaunchedEffect(true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigateToHeight(event)
+                is UiEvent.Success -> onNavigateToHeight()
                 is UiEvent.ShowSnackbar -> scaffoldState.snackbarHostState.showSnackbar(
                     message = event.message.asString(context)
                 )

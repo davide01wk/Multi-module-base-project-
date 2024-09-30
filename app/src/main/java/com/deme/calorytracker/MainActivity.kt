@@ -13,7 +13,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.deme.calorytracker.navigation.navigate
 import com.deme.domain.preferences.Preferences
 import com.deme.presentation.activity.ActivityLevelRoute
 import com.deme.presentation.age.AgeRoute
@@ -55,51 +54,70 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(Route.WELCOME) {
                             WelcomeRoute(
-                                onNavigateToGender = navController::navigate
+                                onNavigateToGender = {
+                                    navController.navigate(route = Route.GENDER)
+                                }
                             )
                         }
                         composable(Route.AGE) {
                             AgeRoute(
                                 scaffoldState = scaffoldState,
-                                onNavigateToHeight = navController::navigate
+                                onNavigateToHeight = {
+                                    navController.navigate(route = Route.HEIGHT)
+                                }
                             )
                         }
                         composable(Route.GENDER) {
                             GenderRoute(
-                                onNavigateToAge = navController::navigate
+                                onNavigateToAge = {
+                                    navController.navigate(route = Route.AGE)
+                                }
                             )
                         }
                         composable(Route.HEIGHT) {
                             HeightRoute(
                                 scaffoldState = scaffoldState,
-                                onNavigateToWeight = navController::navigate
+                                onNavigateToWeight = {
+                                    navController.navigate(route = Route.WEIGHT)
+                                }
                             )
                         }
                         composable(Route.WEIGHT) {
                             WeightRoute(
                                 scaffoldState = scaffoldState,
-                                onNavigateToActivityLevel = navController::navigate
+                                onNavigateToActivityLevel = {
+                                    navController.navigate(route = Route.ACTIVITY)
+                                }
                             )
                         }
                         composable(Route.NUTRIENT_GOAL) {
                             NutrientGoalRoute(
                                 scaffoldState = scaffoldState,
-                                onNavigateToTracker = navController::navigate
+                                onNavigateToTracker = {
+                                    navController.navigate(route = Route.TRACKER_OVERVIEW)
+                                }
                             )
                         }
                         composable(Route.ACTIVITY) {
                             ActivityLevelRoute(
-                                onNavigateToGoal = navController::navigate
+                                onNavigateToGoal = {
+                                    navController.navigate(route = Route.GOAL)
+                                }
                             )
                         }
                         composable(Route.GOAL) {
                             GoalRoute(
-                                onNavigateToNutrientGoal = navController::navigate
+                                onNavigateToNutrientGoal = {
+                                    navController.navigate(route = Route.NUTRIENT_GOAL)
+                                }
                             )
                         }
                         composable(Route.TRACKER_OVERVIEW) {
                             TrackerOverviewRoute(
-                                onNavigateToSearch = navController::navigate
+                                onNavigateToSearch = { mealName, dayOfMonth, month, year ->
+                                    navController.navigate(route = Route.SEARCH +
+                                            "/$mealName/$dayOfMonth/$month/$year")
+                                }
                             )
                         }
                         composable(

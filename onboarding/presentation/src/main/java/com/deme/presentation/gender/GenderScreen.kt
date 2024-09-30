@@ -30,13 +30,13 @@ import com.deme.presentation.theme.LocalSpacing
 
 @Composable
 fun GenderRoute(
-    onNavigateToAge: (UiEvent.Navigate) -> Unit,
+    onNavigateToAge: () -> Unit,
     viewModel: GenderViewModel = hiltViewModel()
 ) {
     LaunchedEffect(true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigateToAge(event)
+                is UiEvent.Success -> onNavigateToAge()
                 else -> {}
             }
         }

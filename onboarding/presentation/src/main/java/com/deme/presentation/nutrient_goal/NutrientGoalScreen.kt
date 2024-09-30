@@ -26,7 +26,7 @@ import com.deme.presentation.util.UiEvent
 @Composable
 fun NutrientGoalRoute(
     scaffoldState: ScaffoldState,
-    onNavigateToTracker: (UiEvent.Navigate) -> Unit,
+    onNavigateToTracker: () -> Unit,
     viewModel: NutrientGoalViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -34,7 +34,7 @@ fun NutrientGoalRoute(
     LaunchedEffect(true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigateToTracker(event)
+                is UiEvent.Success -> onNavigateToTracker()
                 is UiEvent.ShowSnackbar -> scaffoldState.snackbarHostState.showSnackbar(
                     message = event.message.asString(context)
                 )

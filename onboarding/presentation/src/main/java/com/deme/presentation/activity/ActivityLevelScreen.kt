@@ -30,13 +30,13 @@ import com.deme.presentation.theme.LocalSpacing
 
 @Composable
 fun ActivityLevelRoute(
-    onNavigateToGoal: (UiEvent.Navigate) -> Unit,
+    onNavigateToGoal: () -> Unit,
     viewModel: ActivityLevelViewModel = hiltViewModel()
 ) {
     LaunchedEffect(true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigateToGoal(event)
+                is UiEvent.Success -> onNavigateToGoal()
                 else -> {}
             }
         }
