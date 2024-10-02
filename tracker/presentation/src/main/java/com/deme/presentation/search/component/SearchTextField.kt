@@ -24,6 +24,8 @@ import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
@@ -59,6 +61,9 @@ fun SearchTextField(
                 modifier = Modifier
                     .align(Alignment.CenterStart)
                     .fillMaxWidth()
+                    .semantics {
+                        contentDescription = "search_text_field"
+                    }
                     .padding(start = LocalSpacing.current.sm)
                     .onFocusChanged { onFocusChanged(it) },
                 value = text,

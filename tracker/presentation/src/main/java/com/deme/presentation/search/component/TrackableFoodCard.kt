@@ -30,6 +30,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -148,6 +150,9 @@ fun TrackableFoodCard(
                                 width = 0.5.dp,
                                 color = MaterialTheme.colors.onSurface
                             )
+                            .semantics {
+                                contentDescription = "amount_text_field"
+                            }
                             .alignBy(LastBaseline)
                             .padding(LocalSpacing.current.md)
 
